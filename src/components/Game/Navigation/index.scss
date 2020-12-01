@@ -1,0 +1,11 @@
+.game-navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 10px;
+
+  .game-navigation-button {
+    margin: 0 10px;
+  }
+}
+

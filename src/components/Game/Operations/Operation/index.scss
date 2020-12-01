@@ -1,0 +1,22 @@
+.operation {
+  height: 16vmin;
+  width: 16vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 10px;
+  cursor: pointer;
+
+  &.selected { 
+    background-color: black;
+    color: white;
+  }
+}
+
+.operation-text { 
+  font-size: 6vmin;
+  font-weight: bold;
+  user-select: none;
+}

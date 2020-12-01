@@ -1,0 +1,28 @@
+.navigation-button {
+  height: 6vmin;
+  width: 15vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 10px;
+  cursor: pointer;
+
+  &:active:not(.disabled) {
+    background-color: black;
+    color: white;
+  }
+
+  &.disabled {
+    border-color: rgba(black, .4);
+    color: rgba(black, .4);
+    cursor: not-allowed;
+  }
+}
+
+.navigation-button-text { 
+  font-size: 3vmin;
+  font-weight: bold;
+  user-select: none;
+}

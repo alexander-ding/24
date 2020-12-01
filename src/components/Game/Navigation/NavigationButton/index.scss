@@ -1,0 +1,22 @@
+.game-navigation-button {
+  height: 8vmin;
+  width: 16vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 10px;
+  cursor: pointer;
+
+  &:active {
+    background-color: black;
+    color: white;
+  }
+}
+
+.game-navigation-button-text { 
+  font-size: 4vmin;
+  font-weight: bold;
+  user-select: none;
+}

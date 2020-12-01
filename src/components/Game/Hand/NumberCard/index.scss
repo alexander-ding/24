@@ -1,0 +1,41 @@
+.number-card {
+  height: 30vmin;
+  width: 20vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 10px;
+  cursor: pointer;
+
+  &.selected { 
+    background-color: black;
+    color: white;
+  }
+
+  &.correct { 
+    background-color: green;
+    color: white;
+  }
+
+  &.incorrect { 
+    background-color: red;
+    color: white;
+  }
+}
+
+.number-card-number { 
+  font-size: 8vmin;
+  font-weight: bold;
+  user-select: none;
+}
+
+.number-card-hidden {
+  height: 30vmin;
+  width: 20vmin;
+  border-width: 2px;
+  border-style: solid;
+  border-color: transparent;
+  border-radius: 10px;
+}

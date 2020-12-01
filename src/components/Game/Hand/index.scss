@@ -1,8 +1,9 @@
 .hand {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   
-  .number-card {
+  .number-card, .number-card-hidden {
     margin: 0 10px;
   }
 }
