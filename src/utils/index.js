@@ -1,6 +1,6 @@
 const Fraction = require("fraction.js");
 
-exports.isSolvable = (hand) => {
+export const isSolvable = (hand) => {
   if (hand.length === 1) {
     return hand[0].equals(24);
   }
@@ -8,10 +8,10 @@ exports.isSolvable = (hand) => {
   for (var i = 0; i < hand.length; i++) {
     for (var j = 0; j < hand.length; j++) {
       if (i === j) continue;
-      for (const op of exports.ALL_OPERATIONS) {
-        if (exports.isComputationValid(op, hand[i], hand[j])) {
+      for (const op of ALL_OPERATIONS) {
+        if (isComputationValid(op, hand[i], hand[j])) {
           // eslint-disable-next-line no-loop-func
-          const isCorrect = exports.isSolvable([...hand.filter((_,index) => index !== i && index !== j), compute(op, hand[i], hand[j])]);
+          const isCorrect = isSolvable([...hand.filter((_,index) => index !== i && index !== j), compute(op, hand[i], hand[j])]);
           if (isCorrect) return true;
         }
       }
@@ -20,29 +20,29 @@ exports.isSolvable = (hand) => {
   return false;
 }
 
-exports.NUM_CARDS = 4;
-exports.NUM_MIN = 1;
-exports.NUM_MAX = 13;
+export const NUM_CARDS = 4;
+export const NUM_MIN = 1;
+export const NUM_MAX = 13;
 
 const generateCandidateHand = () => {
-  return Array.apply(null, Array(exports.NUM_CARDS)).map(
-    () => Fraction(Math.floor(Math.random() * (exports.NUM_MAX - exports.NUM_MIN)) + exports.NUM_MIN)
+  return Array.apply(null, Array(NUM_CARDS)).map(
+    () => Fraction(Math.floor(Math.random() * (NUM_MAX - NUM_MIN)) + NUM_MIN)
   );
 }
 
-exports.generateHand = (previousHands) => {
+export const generateHand = (previousHands) => {
   var hand;
   while (true) {
     hand = generateCandidateHand();
     // eslint-disable-next-line no-loop-func
-    if (exports.isSolvable(hand) && previousHands.filter(previousHand => previousHand === hand).length === 0) {
+    if (isSolvable(hand) && previousHands.filter(previousHand => previousHand === hand).length === 0) {
       return hand;
     }
   }
   
 }
 
-exports.mapOperationToText = (operation) => {
+export const mapOperationToText = (operation) => {
   switch (operation) {
     case "ADD":
       return "+";
@@ -57,9 +57,9 @@ exports.mapOperationToText = (operation) => {
   }
 }
 
-exports.ALL_OPERATIONS = ["ADD", "SUB", "MUL", "DIV"];
+export const ALL_OPERATIONS = ["ADD", "SUB", "MUL", "DIV"];
 
-exports.isComputationValid = (operation, n1, n2) => {
+export const isComputationValid = (operation, n1, n2) => {
   return !(operation === "DIV" && n2.equals(0));
 }
 
@@ -78,7 +78,7 @@ const compute = (operation, n1, n2) => {
   }
 }
 
-exports.computeHand = (operation, n1Index, n2Index, currentHand) => {
+export const computeHand = (operation, n1Index, n2Index, currentHand) => {
   const n1 = currentHand[n1Index];
   const n2 = currentHand[n2Index];
 
@@ -89,12 +89,12 @@ exports.computeHand = (operation, n1Index, n2Index, currentHand) => {
   return newHand;
 }
 
-exports.GOAL_NUMBER = 24;
+export const GOAL_NUMBER = 24;
 
-exports.isEndGame = (hand) => {
+export const isEndGame = (hand) => {
   return hand.filter((card) => card !== null).length === 1;
 }
 
-exports.isWin = (hand) => {
-  return exports.isEndGame(hand) && hand.filter((card) => card !== null)[0].equals(24);
+export const isWin = (hand) => {
+  return isEndGame(hand) && hand.filter((card) => card !== null)[0].equals(24);
 }
