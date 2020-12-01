@@ -34,6 +34,7 @@ exports.generateHand = (previousHands) => {
   var hand;
   while (true) {
     hand = generateCandidateHand();
+    // eslint-disable-next-line no-loop-func
     if (exports.isSolvable(hand) && previousHands.filter(previousHand => previousHand === hand).length === 0) {
       return hand;
     }
