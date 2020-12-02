@@ -13,6 +13,7 @@ const makeHistory = (hand, selected, operation) => ({
 const Game = ({hand}) => {
   const [history, setHistory] = useState([makeHistory(hand, null, null)]);
   const latest = history[history.length - 1];
+
   const updateSelected = (index) => {
     setHistory([...history.slice(0, history.length - 1), makeHistory(latest.hand, index, latest.operation)]);
   }
@@ -44,7 +45,11 @@ const Game = ({hand}) => {
   }
 
   const goBack = () => {
-    if (history.length > 1) setHistory(history.slice(0, history.length - 1));
+    if (history.length > 1) {
+      setHistory(history.slice(0, history.length - 1));
+    } else {
+      setHistory([makeHistory(hand, null, null)]);
+    }
   }
 
   const reset = () => {

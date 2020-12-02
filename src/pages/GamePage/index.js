@@ -25,6 +25,7 @@ const GamePage = () => {
     setCurrentHand(currentHand + 1);
   }
 
+
   return <div className="game-page">
     <Navigation 
       onPrevious={onPrevious} 
@@ -32,7 +33,7 @@ const GamePage = () => {
       onNext={onNext}
     />
     <Game key={currentHand} hand={hands[currentHand]}/> 
-  </div>
+  </div>;
 }
 
 export default GamePage;

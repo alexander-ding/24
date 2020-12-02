@@ -1,5 +1,39 @@
 const Fraction = require("fraction.js");
 
+export const KEY_MAP = {
+  SELECT_1: ["1", "a"],
+  SELECT_2: ["2", "s"],
+  SELECT_3: ["3", "d"],
+  SELECT_4: ["4", "f"],
+  SELECT_ADD: ["shift+=", "j"],
+  SELECT_SUB: ["-", "k"],
+  SELECT_MUL: ["shift+8", "l"],
+  SELECT_DIV: ["/", ";"],
+  SELECT_BACK: ["backspace", "b"],
+  SELECT_RESET: ["r"],
+  SELECT_NEXT: ["enter", "right", "space", "]"],
+  SELECT_PREVIOUS: ["'", "left", "p", "["],
+}
+
+export const mapCardToKey = (card) => {
+  return "SELECT_" + (card + 1).toString();
+}
+
+export const mapOperationToKey = (operation) => {
+  switch (operation) {
+    case "ADD":
+      return "SELECT_ADD";
+    case "SUB":
+      return "SELECT_SUB";
+    case "MUL":
+      return "SELECT_MUL";
+    case "DIV":
+      return "SELECT_DIV";
+    default:
+      return "ERROR";
+  }
+}
+
 export const isSolvable = (hand) => {
   if (hand.length === 1) {
     return hand[0].equals(24);

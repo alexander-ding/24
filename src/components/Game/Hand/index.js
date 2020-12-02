@@ -8,6 +8,7 @@ const Hand = ({cards, selected, selectCard}) => {
     {cards.map((n, index) => 
     <NumberCard 
       key={index} 
+      index={index}
       n={n} 
       isHidden={n === null} 
       isSelected={index === selected}
