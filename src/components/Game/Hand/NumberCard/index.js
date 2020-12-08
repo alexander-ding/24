@@ -20,18 +20,18 @@ const NumberCard = ({isHidden, isSelected, isFinal, n, select}) => {
 const enhance = compose(lifecycle({
   componentDidMount() {
     if (!this.props.isHidden) {
-      Mousetrap.bind(KEY_MAP["SELECT_" + (this.props.index + 1).toString()], this.props.select);
+      Mousetrap.bind(KEY_MAP["SELECT_" + (this.props.index + 1).toString()].keys, this.props.select);
     }
   },
   componentWillReceiveProps(nextProps) {
-    Mousetrap.unbind(KEY_MAP["SELECT_" + (this.props.index + 1).toString()]);
+    Mousetrap.unbind(KEY_MAP["SELECT_" + (this.props.index + 1).toString()].keys);
     if (!nextProps.isHidden) {
-      Mousetrap.bind(KEY_MAP["SELECT_" + (this.props.index + 1).toString()], nextProps.select);
+      Mousetrap.bind(KEY_MAP["SELECT_" + (this.props.index + 1).toString()].keys, nextProps.select);
     }
   },
   componentWillUnmount() {
     if (!this.props.isHidden) {
-      Mousetrap.unbind(KEY_MAP["SELECT_" + (this.props.index + 1).toString()]);
+      Mousetrap.unbind(KEY_MAP["SELECT_" + (this.props.index + 1).toString()].keys);
     } 
   }
 }))

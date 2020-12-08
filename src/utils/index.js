@@ -12,20 +12,62 @@ export const convertShortcut = (s) => {
 }
 
 export const KEY_MAP = {
-  SELECT_1: ["1", "a"],
-  SELECT_2: ["2", "s"],
-  SELECT_3: ["3", "d"],
-  SELECT_4: ["4", "f"],
-  SELECT_ADD: ["shift+=", "j"],
-  SELECT_SUB: ["-", "k"],
-  SELECT_MUL: ["shift+8", "l"],
-  SELECT_DIV: ["/", ";"],
-  SELECT_BACK: ["backspace", "b"],
-  SELECT_RESET: ["r"],
-  SELECT_NEXT: ["enter", "right", "space", "]"],
-  SELECT_PREVIOUS: ["'", "left", "p", "["],
-  TOGGLE_SHORTCUT: ["shift+s"],
-  CLOSE_SHORTCUT: ["esc"],
+  SELECT_1: {
+    keys: ["1", "a"],
+    description: "Select card 1",
+  },
+  SELECT_2: {
+    keys: ["2", "s"],
+    description: "Select card 2",
+  },
+  SELECT_3: {
+    keys: ["3", "d"],
+    description: "Select card 3",
+  },
+  SELECT_4: {
+    keys: ["4", "f"],
+    description: "Select card 4",
+  },
+  SELECT_ADD: {
+    keys: ["shift+=", "j"],
+    description: "Select addition",
+  },
+  SELECT_SUB: {
+    keys: ["-", "k"],
+    description: "Select subtraction",
+  },
+  SELECT_MUL: {
+    keys: ["shift+8", "l"],
+    description: "Select multiplication",
+  },
+  SELECT_DIV: {
+    keys: ["/", ";"],
+    description: "Select division",
+  },
+  SELECT_BACK: {
+    keys: ["backspace", "b"],
+    description: "Go back one step",
+  },
+  SELECT_RESET: {
+    keys: ["r"],
+    description: "Reset current problem",
+  },
+  SELECT_NEXT: {
+    keys: ["enter", "right", "space", "]"],
+    description: "Go to next problem",
+  },
+  SELECT_PREVIOUS: {
+    keys: ["'", "left", "p", "["],
+    description: "Go to previous problem",
+  },
+  TOGGLE_SHORTCUT: {
+    keys: ["shift+s"],
+    description: "Toggle shortcut display",
+  },
+  CLOSE_SHORTCUT: {
+    keys: ["esc"],
+    description: "Close shortcut display",
+  },
 }
 
 export const mapCardToKey = (card) => {

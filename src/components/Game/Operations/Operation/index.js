@@ -15,14 +15,14 @@ const Operation = ({operation, isSelected, select}) => {
 const enhance = compose(
   lifecycle({
     componentDidMount() {
-      Mousetrap.bind(KEY_MAP[mapOperationToKey(this.props.operation)], this.props.select);
+      Mousetrap.bind(KEY_MAP[mapOperationToKey(this.props.operation)].keys, this.props.select);
     },
     componentWillReceiveProps(nextProps) {
-      Mousetrap.unbind(KEY_MAP[mapOperationToKey(this.props.operation)]);
-      Mousetrap.bind(KEY_MAP[mapOperationToKey(this.props.operation)], nextProps.select);
+      Mousetrap.unbind(KEY_MAP[mapOperationToKey(this.props.operation)].keys);
+      Mousetrap.bind(KEY_MAP[mapOperationToKey(this.props.operation)].keys, nextProps.select);
     },
     componentWillUnmount() {
-      Mousetrap.unbind(KEY_MAP[mapOperationToKey(this.props.operation)]);
+      Mousetrap.unbind(KEY_MAP[mapOperationToKey(this.props.operation)].keys);
     }
   })
 )

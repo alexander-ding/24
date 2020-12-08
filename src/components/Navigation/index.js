@@ -15,18 +15,18 @@ const Navigation = ({onPrevious, isPreviousDisabled, onNext}) => {
 const enhance = compose(
   lifecycle({
     componentWillMount() {
-      Mousetrap.bind(KEY_MAP["SELECT_PREVIOUS"], this.props.onPrevious);
-      Mousetrap.bind(KEY_MAP["SELECT_NEXT"], this.props.onNext);
+      Mousetrap.bind(KEY_MAP["SELECT_PREVIOUS"].keys, this.props.onPrevious);
+      Mousetrap.bind(KEY_MAP["SELECT_NEXT"].keys, this.props.onNext);
     },
     componentWillReceiveProps(nextProps) {
-      Mousetrap.unbind(KEY_MAP["SELECT_PREVIOUS"]);
-      Mousetrap.bind(KEY_MAP["SELECT_PREVIOUS"], nextProps.onPrevious);
-      Mousetrap.unbind(KEY_MAP["SELECT_NEXT"]);
-      Mousetrap.bind(KEY_MAP["SELECT_NEXT"], nextProps.onNext);
+      Mousetrap.unbind(KEY_MAP["SELECT_PREVIOUS"].keys);
+      Mousetrap.bind(KEY_MAP["SELECT_PREVIOUS"].keys, nextProps.onPrevious);
+      Mousetrap.unbind(KEY_MAP["SELECT_NEXT"].keys);
+      Mousetrap.bind(KEY_MAP["SELECT_NEXT"].keys, nextProps.onNext);
     },
     componentWillUnmount() {
-      Mousetrap.unbind(KEY_MAP["SELECT_PREVIOUS"]);
-      Mousetrap.unbind(KEY_MAP["SELECT_NEXT"]);
+      Mousetrap.unbind(KEY_MAP["SELECT_PREVIOUS"].keys);
+      Mousetrap.unbind(KEY_MAP["SELECT_NEXT"].keys);
     }
   })
 )
