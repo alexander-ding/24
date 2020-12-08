@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { isMobile } from "react-device-detect";
 import Game from "../../components/Game";
 import Navigation from "../../components/Navigation";
 import { generateHand } from "../../utils";
 import "./index.scss";
+import ShortcutHelp from "../../components/ShortcutHelp";
 
 const GamePage = () => {
   const [hands, setHands] = useState([generateHand([])]);
@@ -32,7 +34,8 @@ const GamePage = () => {
       isPreviousDisabled={currentHand === 0} 
       onNext={onNext}
     />
-    <Game key={currentHand} hand={hands[currentHand]}/> 
+    <Game key={currentHand} hand={hands[currentHand]}/>
+    { isMobile ? null : <ShortcutHelp/> }
   </div>;
 }
 

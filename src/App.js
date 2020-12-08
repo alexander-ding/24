@@ -1,12 +1,13 @@
 import GithubCorner from "react-github-corner";
 import GamePage from "./pages/GamePage";
+import Div100vh from "react-div-100vh";
 
 function App() {
   return (
-    <div className="App">
-      <GithubCorner href="https://github.com/alexander-ding/24/"/>
+    <Div100vh className="app">
+      <GithubCorner href="https://github.com/alexander-ding/24/" size={50}/>
       <GamePage/>
-    </div>
+    </Div100vh>
   );
 }
 

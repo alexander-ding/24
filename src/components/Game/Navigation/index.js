@@ -14,18 +14,18 @@ const Navigation = ({goBack, reset}) => {
 
 const enhance = compose(lifecycle({
   componentDidMount() {
-    Mousetrap.bind(KEY_MAP["SELECT_BACK"], this.props.goBack);
-    Mousetrap.bind(KEY_MAP["SELECT_RESET"], this.props.reset);
+    Mousetrap.bind(KEY_MAP["SELECT_BACK"].keys, this.props.goBack);
+    Mousetrap.bind(KEY_MAP["SELECT_RESET"].keys, this.props.reset);
   },
   componentWillReceiveProps(nextProps) {
-    Mousetrap.unbind(KEY_MAP["SELECT_BACK"]);
-    Mousetrap.unbind(KEY_MAP["SELECT_RESET"]);
-    Mousetrap.bind(KEY_MAP["SELECT_BACK"], nextProps.goBack);
-    Mousetrap.bind(KEY_MAP["SELECT_RESET"], nextProps.reset);
+    Mousetrap.unbind(KEY_MAP["SELECT_BACK"].keys);
+    Mousetrap.unbind(KEY_MAP["SELECT_RESET"].keys);
+    Mousetrap.bind(KEY_MAP["SELECT_BACK"].keys, nextProps.goBack);
+    Mousetrap.bind(KEY_MAP["SELECT_RESET"].keys, nextProps.reset);
   },
   componentWillUnmount() {
-    Mousetrap.unbind(KEY_MAP["SELECT_BACK"]);
-    Mousetrap.unbind(KEY_MAP["SELECT_RESET"]);
+    Mousetrap.unbind(KEY_MAP["SELECT_BACK"].keys);
+    Mousetrap.unbind(KEY_MAP["SELECT_RESET"].keys);
   }
 }))
 
