@@ -1,5 +1,16 @@
 const Fraction = require("fraction.js");
 
+export const convertShortcut = (s) => {
+  switch (s) {
+    case "left":
+      return "←";
+    case "right":
+      return "→";
+    default:
+      return s.toUpperCase();
+  }
+}
+
 export const KEY_MAP = {
   SELECT_1: ["1", "a"],
   SELECT_2: ["2", "s"],
@@ -13,6 +24,8 @@ export const KEY_MAP = {
   SELECT_RESET: ["r"],
   SELECT_NEXT: ["enter", "right", "space", "]"],
   SELECT_PREVIOUS: ["'", "left", "p", "["],
+  TOGGLE_SHORTCUT: ["shift+s"],
+  CLOSE_SHORTCUT: ["esc"],
 }
 
 export const mapCardToKey = (card) => {
