@@ -1,0 +1,19 @@
+.welcome-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.welcome-close { 
+  height: 32px;
+  width: 32px;
+  font-size: 22px;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  margin-right: -10px;
+}
